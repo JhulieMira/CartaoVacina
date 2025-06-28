@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartaoVacina.API", "CartaoVacina.API\CartaoVacina.API.csproj", "{9D2320D3-7C27-4C29-8AA3-06DCE386FC33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartaoVacina.Contracts", "CartaoVacina.Contracts\CartaoVacina.Contracts.csproj", "{0B33E5F1-0C30-46A6-8DDB-0CA19851E085}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartaoVacina.Core", "CartaoVacina.Core\CartaoVacina.Core.csproj", "{89911C77-E2D6-492D-A0BC-8D7A93337BC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartaoVacina.Infrastructure", "CartaoVacina.Infrastructure\CartaoVacina.Infrastructure.csproj", "{4ED68BA8-C8B2-46D2-9B27-B00E76787202}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartaoVacina.Migrations", "CartaoVacina.Migrations\CartaoVacina.Migrations.csproj", "{15D66598-4CDE-4CF0-81E9-9E19AC4BF1C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - API", "01 - API", "{078F3162-D409-4C55-8C08-D43ECEB2FB03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Domain", "02 - Domain", "{8E6CA219-4730-4A10-AD31-3C188B38BB9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Infra", "03 - Infra", "{8E99E89E-2925-46E1-97D4-31567245FC04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D2320D3-7C27-4C29-8AA3-06DCE386FC33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D2320D3-7C27-4C29-8AA3-06DCE386FC33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D2320D3-7C27-4C29-8AA3-06DCE386FC33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D2320D3-7C27-4C29-8AA3-06DCE386FC33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B33E5F1-0C30-46A6-8DDB-0CA19851E085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B33E5F1-0C30-46A6-8DDB-0CA19851E085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B33E5F1-0C30-46A6-8DDB-0CA19851E085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B33E5F1-0C30-46A6-8DDB-0CA19851E085}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89911C77-E2D6-492D-A0BC-8D7A93337BC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89911C77-E2D6-492D-A0BC-8D7A93337BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89911C77-E2D6-492D-A0BC-8D7A93337BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89911C77-E2D6-492D-A0BC-8D7A93337BC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ED68BA8-C8B2-46D2-9B27-B00E76787202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ED68BA8-C8B2-46D2-9B27-B00E76787202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ED68BA8-C8B2-46D2-9B27-B00E76787202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ED68BA8-C8B2-46D2-9B27-B00E76787202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15D66598-4CDE-4CF0-81E9-9E19AC4BF1C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15D66598-4CDE-4CF0-81E9-9E19AC4BF1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15D66598-4CDE-4CF0-81E9-9E19AC4BF1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15D66598-4CDE-4CF0-81E9-9E19AC4BF1C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9D2320D3-7C27-4C29-8AA3-06DCE386FC33} = {078F3162-D409-4C55-8C08-D43ECEB2FB03}
+		{0B33E5F1-0C30-46A6-8DDB-0CA19851E085} = {8E6CA219-4730-4A10-AD31-3C188B38BB9F}
+		{89911C77-E2D6-492D-A0BC-8D7A93337BC3} = {8E6CA219-4730-4A10-AD31-3C188B38BB9F}
+		{4ED68BA8-C8B2-46D2-9B27-B00E76787202} = {8E99E89E-2925-46E1-97D4-31567245FC04}
+		{15D66598-4CDE-4CF0-81E9-9E19AC4BF1C8} = {8E99E89E-2925-46E1-97D4-31567245FC04}
+	EndGlobalSection
+EndGlobal
