@@ -14,11 +14,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Exceptions\" />
       <Folder Include="Handlers\Commands\" />
-      <Folder Include="Handlers\Queries\" />
-      <Folder Include="Mappers\" />
       <Folder Include="Validators\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CartaoVacina.Contracts\CartaoVacina.Contracts.csproj" />
     </ItemGroup>
 
 </Project>
