@@ -1,0 +1,18 @@
+using CartaoVacina.Contracts.Data;
+using CartaoVacina.Contracts.Data.Repositories;
+using CartaoVacina.Infrastructure.Data.Repositories;
+using CartaoVacina.Migrations;
+
+namespace CartaoVacina.Infrastructure.Data;
+
+public class UnitOfWork(DatabaseContext context) : IUnitOfWork
+{
+    public IUserRepository Users => new UserRepository(context);
+    public IVaccineRepository Vaccines => new VaccineRepository(context);
+    public IVaccinationRepository Vaccinations => new VaccinationRepository(context);
+
+    public async Task CommitAsync()
+    {
+        await context.SaveChangesAsync();
+    }
+}
