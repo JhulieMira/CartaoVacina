@@ -1,4 +1,5 @@
 using CartaoVacina.Contracts.DTOS.Users;
+using CartaoVacina.Contracts.DTOS.Vaccinations;
 using CartaoVacina.Core.Exceptions;
 using CartaoVacina.Core.Handlers.Commands;
 using CartaoVacina.Core.Handlers.Queries;
@@ -80,6 +81,7 @@ public class UserController(IMediator mediator) : ControllerBase
     [HttpPatch("{userId:int}")]
     [ProducesResponseType(typeof(UserDTO), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<UserDTO>> Update(int userId, [FromBody]UpdateUserDTO payload)
     {
@@ -106,7 +108,7 @@ public class UserController(IMediator mediator) : ControllerBase
     
     [HttpDelete("{userId:int}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<UserDTO>> Delete(int userId)
     {
@@ -114,6 +116,85 @@ public class UserController(IMediator mediator) : ControllerBase
         {
             var query = new DeleteUserCommand(userId);
             await mediator.Send(query);
+
+            return NoContent();
+        }
+        catch (NotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+        }
+    }
+    
+    [HttpPost("{userId:int}/vaccinations")]
+    [ProducesResponseType(typeof(VaccinationDTO), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<VaccinationDTO>> CreateVaccination(int userId, [FromBody]CreateVaccinationDTO payload)
+    {
+        try
+        {
+            var command = new CreateVaccinationCommand(userId, payload);
+            var response = await mediator.Send(command);
+
+            return Ok(response);
+        }
+        catch (NotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
+        catch (ValidationException ex)
+        {
+            return BadRequest(ex.Errors);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+        }
+    }
+
+    [HttpPatch("{userId:int}/vaccinations/{vaccinationId:int}")]
+    [ProducesResponseType(typeof(VaccinationDTO), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult<VaccinationDTO>> UpdateVaccination(int userId, int vaccinationId, [FromBody] UpdateVaccinationDTO payload)
+    {
+        try
+        {
+            var command = new UpdateVaccinationCommand(userId, vaccinationId, payload);
+            var response = await mediator.Send(command);
+
+            return Ok(response);
+        }
+        catch (NotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
+        catch (ValidationException ex)
+        {
+            return BadRequest(ex.Errors);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+        }
+    }
+    
+    [HttpDelete("{userId:int}/vaccinations/{vaccinationId:int}")]
+    [ProducesResponseType(typeof(VaccinationDTO), StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult> DeleteVaccination(int userId, int vaccinationId)
+    {
+        try
+        {
+            var command = new DeleteVaccinationCommand(userId, vaccinationId);
+            await mediator.Send(command);
 
             return NoContent();
         }

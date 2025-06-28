@@ -20,6 +20,8 @@ public class GetUserByIdHandler(IUnitOfWork unitOfWork, IMapper mapper) : IReque
         if (user is null)
             throw new NotFoundException($"User with id {request.UserId} not found.");
         
+        user.Vaccinations = unitOfWork.Vaccinations.Get(x => x.UserId == request.UserId).ToList();
+        
         return mapper.Map<UserDTO>(user);
     }
 }
