@@ -9,6 +9,8 @@ public class UserConfiguration: IEntityTypeConfiguration<User>
     public void Configure(EntityTypeBuilder<User> builder)
     {
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id)
+            .ValueGeneratedOnAdd();
         
         builder.Property(x => x.Name)
             .IsRequired()
@@ -16,7 +18,10 @@ public class UserConfiguration: IEntityTypeConfiguration<User>
 
         builder.Property(x => x.Gender)
             .IsRequired()
-            .HasConversion<Gender>();
+            .HasConversion(
+                v => v.ToString(),
+                v => Enum.Parse<Gender>(v)
+            );
         
         builder.Property(x => x.BirthDate)
             .IsRequired();

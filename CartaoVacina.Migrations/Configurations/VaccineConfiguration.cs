@@ -9,6 +9,8 @@ public class VaccineConfiguration: IEntityTypeConfiguration<Vaccine>
     public void Configure(EntityTypeBuilder<Vaccine> builder)
     {
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id)
+            .ValueGeneratedOnAdd();
         
         builder.Property(x => x.Name)
             .IsRequired()

@@ -1,6 +1,8 @@
 using System.Reflection;
 using CartaoVacina.Contracts.Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 
 namespace CartaoVacina.Migrations;
 
@@ -27,8 +29,27 @@ public class DatabaseContext: DbContext
 
         return base.SaveChangesAsync(cancellationToken);
     }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+    }
+}
+
+public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<DatabaseContext>
+{
+    public DatabaseContext CreateDbContext(string[] args)
+    {
+        var configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", optional: true, reloadOnChange: true)
+            .Build();
+        
+        var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
+        
+        optionsBuilder.UseSqlite(configuration.GetConnectionString("DefaultConnection"));
+        
+        return new DatabaseContext(optionsBuilder.Options);
     }
 }
