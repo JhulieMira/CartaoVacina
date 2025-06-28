@@ -16,12 +16,12 @@ public class VaccinationConfiguration: IEntityTypeConfiguration<Vaccination>
             .IsRequired();
 
         builder.HasOne(x => x.Vaccine)
-            .WithMany()
+            .WithMany(x => x.Vaccinations)
             .HasForeignKey(x => x.VaccineId)
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasOne(x => x.User)
-            .WithMany()
+            .WithMany(x => x.Vaccinations)
             .HasForeignKey(x => x.UserId)
             .OnDelete(DeleteBehavior.Cascade);
     }
