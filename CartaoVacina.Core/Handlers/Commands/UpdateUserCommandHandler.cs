@@ -13,15 +13,17 @@ public class UpdateUserCommand(int userId, UpdateUserDTO updateUserDTO): IReques
     public UpdateUserDTO UpdateUserDTO { get; } = updateUserDTO;
 }
 
-public class UpdateUserCommandHandler(IUnitOfWork unitOfWork, IMapper mapper) : IRequestHandler<UpdateUserCommand, UserDTO>
+public class UpdateUserCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IValidator<UpdateUserDTO> validator) : IRequestHandler<UpdateUserCommand, UserDTO>
 {
     public async Task<UserDTO> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
     {
         if (request.UserId == 0)
             throw new NotFoundException($"User with id {request.UserId} not found.");
         
-        if (request.UpdateUserDTO == null || (string.IsNullOrEmpty(request.UpdateUserDTO.Name) && request.UpdateUserDTO.Name == null))
-            throw new ValidationException("At least one field must be provided for update.");
+        var validationResult = await validator.ValidateAsync(request.UpdateUserDTO, cancellationToken);
+        
+        if (!validationResult.IsValid)
+            throw new ValidationException(validationResult.Errors);
         
         var user = await unitOfWork.Users.GetById(request.UserId, cancellationToken);
         
