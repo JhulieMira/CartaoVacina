@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\CartaoVacina.Core\CartaoVacina.Core.csproj" />
       <ProjectReference Include="..\CartaoVacina.Infrastructure\CartaoVacina.Infrastructure.csproj" />
     </ItemGroup>
 

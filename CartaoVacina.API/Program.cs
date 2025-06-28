@@ -1,3 +1,4 @@
+using CartaoVacina.Core;
 using CartaoVacina.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddCoreServices();
 
 var app = builder.Build();
 
