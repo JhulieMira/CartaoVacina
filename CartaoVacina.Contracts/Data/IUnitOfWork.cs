@@ -8,5 +8,5 @@ public interface IUnitOfWork
     IVaccineRepository Vaccines { get; }
     IVaccinationRepository Vaccinations { get; }
     
-    Task CommitAsync();
+    Task CommitAsync(CancellationToken cancellationToken = default);
 }

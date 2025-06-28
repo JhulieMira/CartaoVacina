@@ -15,7 +15,7 @@ public class GetUserByIdHandler(IUnitOfWork unitOfWork, IMapper mapper) : IReque
 {
     public async Task<UserDTO> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
     {
-        var user = await unitOfWork.Users.GetById(request.UserId);
+        var user = await unitOfWork.Users.GetById(request.UserId, cancellationToken);
 
         if (user is null)
             throw new NotFoundException($"User with id {request.UserId} not found.");

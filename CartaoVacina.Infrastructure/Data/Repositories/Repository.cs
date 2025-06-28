@@ -9,9 +9,10 @@ public class Repository<T>(DatabaseContext context) : IRepository<T> where T : B
 {
     private readonly DbSet<T> _dbSet = context.Set<T>();
 
-    public async Task<T?> GetById(int id)
+    public async Task<T?> GetById(int id, CancellationToken cancellationToken = default)
     {
-        return await _dbSet.FindAsync(id);
+        var findParams = new object[] { id };
+        return await _dbSet.FindAsync(findParams, cancellationToken);
     }
 
     public IEnumerable<T> Get(Func<T, bool> predicate)
@@ -24,9 +25,9 @@ public class Repository<T>(DatabaseContext context) : IRepository<T> where T : B
         return _dbSet.AsEnumerable();
     }
 
-    public async Task Add(T entity)
+    public async Task Add(T entity, CancellationToken cancellationToken = default)
     {
-        await _dbSet.AddAsync(entity);
+        await _dbSet.AddAsync(entity, cancellationToken);
     }
 
     public void Update(T entity)
@@ -34,12 +35,12 @@ public class Repository<T>(DatabaseContext context) : IRepository<T> where T : B
         _dbSet.Update(entity);
     }
 
-    public async Task Delete(int id)
+    public async Task Delete(int id, CancellationToken cancellationToken = default)
     {
         if (id == 0)
             return;
         
-        var entity = await GetById(id);
+        var entity = await GetById(id, cancellationToken);
         
         if (entity == null)
             return;
@@ -47,8 +48,8 @@ public class Repository<T>(DatabaseContext context) : IRepository<T> where T : B
         _dbSet.Remove(entity);
     }
 
-    public async Task<int> Count()
+    public async Task<int> Count(CancellationToken cancellationToken = default)
     {
-        return await _dbSet.CountAsync();
+        return await _dbSet.CountAsync(cancellationToken);
     }
 }

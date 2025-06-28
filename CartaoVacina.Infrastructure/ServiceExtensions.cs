@@ -15,7 +15,7 @@ public static class ServiceExtensions
 
     private static IServiceCollection AddDatabaseContext(this IServiceCollection services, IConfiguration configuration)
     {
-        return services.AddSqlite<DatabaseContext>(configuration.GetConnectionString("SqlitePath"), (options) =>
+        return services.AddSqlite<DatabaseContext>(configuration.GetConnectionString("DefaultConnection"), (options) =>
         {
             options.MigrationsAssembly("CartaoVacina.Migrations");
         });

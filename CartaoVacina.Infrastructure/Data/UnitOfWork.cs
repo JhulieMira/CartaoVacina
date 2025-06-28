@@ -11,8 +11,8 @@ public class UnitOfWork(DatabaseContext context) : IUnitOfWork
     public IVaccineRepository Vaccines => new VaccineRepository(context);
     public IVaccinationRepository Vaccinations => new VaccinationRepository(context);
 
-    public async Task CommitAsync()
+    public async Task CommitAsync(CancellationToken cancellationToken = default)
     {
-        await context.SaveChangesAsync();
+        await context.SaveChangesAsync(cancellationToken);
     }
 }
