@@ -1,4 +1,4 @@
-namespace CartaoVacina.Contracts.DTOS.Vaccines;
+namespace CartaoVacina.Contracts.Data.DTOS.Vaccines;
 
 public class UpdateVaccineDTO
 {

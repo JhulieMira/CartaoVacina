@@ -1,4 +1,4 @@
-using CartaoVacina.Contracts.DTOS.Vaccines;
+using CartaoVacina.Contracts.Data.DTOS.Vaccines;
 using CartaoVacina.Core.Exceptions;
 using CartaoVacina.Core.Handlers.Commands;
 using CartaoVacina.Core.Handlers.Commands.Vaccines;

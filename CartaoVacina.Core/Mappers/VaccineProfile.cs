@@ -1,6 +1,6 @@
 using AutoMapper;
+using CartaoVacina.Contracts.Data.DTOS.Vaccines;
 using CartaoVacina.Contracts.Data.Entities;
-using CartaoVacina.Contracts.DTOS.Vaccines;
 
 namespace CartaoVacina.Core.Mappers;
 

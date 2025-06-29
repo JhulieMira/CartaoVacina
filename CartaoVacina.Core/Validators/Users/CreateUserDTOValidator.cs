@@ -1,5 +1,5 @@
+using CartaoVacina.Contracts.Data.DTOS.Users;
 using CartaoVacina.Contracts.Data.Entities;
-using CartaoVacina.Contracts.DTOS.Users;
 using FluentValidation;
 
 namespace CartaoVacina.Core.Validators.Users;

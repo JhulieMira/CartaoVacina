@@ -1,6 +1,6 @@
-using CartaoVacina.Contracts.DTOS.Vaccinations;
+using CartaoVacina.Contracts.Data.DTOS.Vaccinations;
 
-namespace CartaoVacina.Contracts.DTOS.Users;
+namespace CartaoVacina.Contracts.Data.DTOS.Users;
 
 public class UserDTO
 {

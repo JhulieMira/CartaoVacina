@@ -1,4 +1,4 @@
-namespace CartaoVacina.Contracts.DTOS.Users;
+namespace CartaoVacina.Contracts.Data.DTOS.Users;
 
 public class CreateUserDTO
 {

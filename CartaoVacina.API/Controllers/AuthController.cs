@@ -1,13 +1,8 @@
-using CartaoVacina.Contracts.DTOS.Accounts;
-using CartaoVacina.Contracts.DTOS.Users;
+using CartaoVacina.Contracts.Data.DTOS.Accounts;
 using CartaoVacina.Core.Handlers.Commands.Accounts;
-using CartaoVacina.Core.Handlers.Queries;
-using CartaoVacina.Core.Services;
 using FluentValidation;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace CartaoVacina.API.Controllers;
 

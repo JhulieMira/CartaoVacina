@@ -1,7 +1,8 @@
-namespace CartaoVacina.Contracts.DTOS.Vaccines;
+namespace CartaoVacina.Contracts.Data.DTOS.Vaccines;
 
-public class CreateVaccineDTO
+public class VaccineDTO
 {
+    public int Id { get; set; }
     public string Name { get; set; }
     public string Code { get; set; }
     public ushort Doses { get; set; }

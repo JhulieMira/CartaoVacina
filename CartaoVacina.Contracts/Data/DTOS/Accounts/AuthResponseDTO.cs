@@ -1,4 +1,4 @@
-namespace CartaoVacina.Contracts.DTOS.Accounts;
+namespace CartaoVacina.Contracts.Data.DTOS.Accounts;
 
 public class AuthResponseDTO
 {

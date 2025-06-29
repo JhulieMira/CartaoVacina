@@ -1,6 +1,6 @@
 using AutoMapper;
 using CartaoVacina.Contracts.Data;
-using CartaoVacina.Contracts.DTOS.Users;
+using CartaoVacina.Contracts.Data.DTOS.Users;
 using MediatR;
 
 namespace CartaoVacina.Core.Handlers.Queries;

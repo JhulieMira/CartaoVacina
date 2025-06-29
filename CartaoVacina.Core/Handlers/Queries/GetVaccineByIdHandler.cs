@@ -1,6 +1,6 @@
 using AutoMapper;
 using CartaoVacina.Contracts.Data;
-using CartaoVacina.Contracts.DTOS.Vaccines;
+using CartaoVacina.Contracts.Data.DTOS.Vaccines;
 using CartaoVacina.Core.Exceptions;
 using MediatR;
 

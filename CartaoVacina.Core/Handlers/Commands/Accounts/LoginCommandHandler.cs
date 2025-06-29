@@ -1,6 +1,6 @@
 using CartaoVacina.Contracts.Data;
+using CartaoVacina.Contracts.Data.DTOS.Accounts;
 using CartaoVacina.Contracts.Data.Entities;
-using CartaoVacina.Contracts.DTOS.Accounts;
 using CartaoVacina.Core.Exceptions;
 using CartaoVacina.Core.Services;
 using FluentValidation;

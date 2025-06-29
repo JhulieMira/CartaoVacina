@@ -1,4 +1,4 @@
-using CartaoVacina.Contracts.DTOS.Accounts;
+using CartaoVacina.Contracts.Data.DTOS.Accounts;
 using FluentValidation;
 
 namespace CartaoVacina.Core.Validators.Accounts;

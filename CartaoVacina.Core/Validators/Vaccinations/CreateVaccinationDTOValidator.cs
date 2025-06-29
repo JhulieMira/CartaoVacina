@@ -1,4 +1,4 @@
-using CartaoVacina.Contracts.DTOS.Vaccinations;
+using CartaoVacina.Contracts.Data.DTOS.Vaccinations;
 using FluentValidation;
 
 namespace CartaoVacina.Core.Validators.Vaccinations;

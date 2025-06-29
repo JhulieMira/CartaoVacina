@@ -1,5 +1,5 @@
-using CartaoVacina.Contracts.DTOS.Users;
-using CartaoVacina.Contracts.DTOS.Vaccinations;
+using CartaoVacina.Contracts.Data.DTOS.Users;
+using CartaoVacina.Contracts.Data.DTOS.Vaccinations;
 using CartaoVacina.Core.Exceptions;
 using CartaoVacina.Core.Handlers.Commands;
 using CartaoVacina.Core.Handlers.Commands.Users;
