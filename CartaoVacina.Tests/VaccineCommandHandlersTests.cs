@@ -3,7 +3,7 @@ using CartaoVacina.Contracts.Data;
 using CartaoVacina.Contracts.Data.DTOS.Vaccines;
 using CartaoVacina.Contracts.Data.Entities;
 using CartaoVacina.Core.Handlers.Commands.Vaccines;
-using CartaoVacina.Core.Handlers.Queries;
+using CartaoVacina.Core.Handlers.Queries.Vaccines;
 using FluentValidation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;

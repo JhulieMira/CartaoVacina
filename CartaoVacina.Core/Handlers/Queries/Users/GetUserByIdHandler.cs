@@ -5,7 +5,7 @@ using CartaoVacina.Core.Exceptions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace CartaoVacina.Core.Handlers.Queries;
+namespace CartaoVacina.Core.Handlers.Queries.Users;
 
 public class GetUserByIdQuery(int userId) : IRequest<UserDTO>
 {

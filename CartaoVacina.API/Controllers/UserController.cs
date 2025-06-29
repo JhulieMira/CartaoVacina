@@ -5,6 +5,7 @@ using CartaoVacina.Core.Handlers.Commands;
 using CartaoVacina.Core.Handlers.Commands.Users;
 using CartaoVacina.Core.Handlers.Commands.Vaccinations;
 using CartaoVacina.Core.Handlers.Queries;
+using CartaoVacina.Core.Handlers.Queries.Users;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

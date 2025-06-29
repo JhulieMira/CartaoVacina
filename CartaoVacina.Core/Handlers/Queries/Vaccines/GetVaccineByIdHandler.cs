@@ -4,7 +4,7 @@ using CartaoVacina.Contracts.Data.DTOS.Vaccines;
 using CartaoVacina.Core.Exceptions;
 using MediatR;
 
-namespace CartaoVacina.Core.Handlers.Queries;
+namespace CartaoVacina.Core.Handlers.Queries.Vaccines;
 
 public class GetVaccineByIdQuery(int vaccineId) : IRequest<VaccineDTO>
 {

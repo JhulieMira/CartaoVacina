@@ -3,7 +3,7 @@ using CartaoVacina.Contracts.Data;
 using CartaoVacina.Contracts.Data.DTOS.Vaccines;
 using MediatR;
 
-namespace CartaoVacina.Core.Handlers.Queries;
+namespace CartaoVacina.Core.Handlers.Queries.Vaccines;
 
 public class ListVaccinesQuery : IRequest<List<VaccineDTO>>
 {

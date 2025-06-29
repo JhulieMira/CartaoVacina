@@ -3,7 +3,7 @@ using CartaoVacina.Contracts.Data;
 using CartaoVacina.Contracts.Data.DTOS.Users;
 using MediatR;
 
-namespace CartaoVacina.Core.Handlers.Queries;
+namespace CartaoVacina.Core.Handlers.Queries.Users;
 
 
 public class ListUsersQuery() : IRequest<List<UserDTO>>
