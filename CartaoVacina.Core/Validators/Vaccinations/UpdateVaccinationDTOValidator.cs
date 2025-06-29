@@ -15,9 +15,8 @@ public class UpdateVaccinationDTOValidator: AbstractValidator<UpdateVaccinationD
         When(x => x.VaccinationDate.HasValue, () =>
         {
             RuleFor(x => x.VaccinationDate)
-                .GreaterThan(DateTime.MinValue)
-                .LessThan(DateTime.Now)
-                .WithMessage("VaccinationDate must be a valid date.");
+                .GreaterThan(DateTime.MinValue).WithMessage("VaccinationDate field must be a valid date.")
+                .LessThan(DateTime.Now).WithMessage("VaccinationDate field cannot be a future date.");
         });
     }
 }

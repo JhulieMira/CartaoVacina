@@ -19,21 +19,23 @@ public class UpdateVaccineDTOValidator: AbstractValidator<UpdateVaccineDTO>
         When(x => !string.IsNullOrEmpty(x.Name), () =>
         {
             RuleFor(x => x.Name)
-                .MaximumLength(100)
-                .MinimumLength(3);
+                .NotEmpty().WithMessage("Name field cannot be empty.")
+                .MaximumLength(100).WithMessage("Name field must have a maximum of 100 characters.")
+                .MinimumLength(3).WithMessage("Name field must have a minimum of 3 characters.");
         });
         
         When(x => !string.IsNullOrEmpty(x.Code), () =>
         {
             RuleFor(x => x.Code)
-                .MaximumLength(10)
-                .MinimumLength(3);
+                .NotEmpty().WithMessage("Code field cannot be empty.")
+                .MaximumLength(10).WithMessage("Code field must have a maximum of 10 characters.")
+                .MinimumLength(3).WithMessage("Code field must have a minimum of 3 characters.");
         });
 
         When(x => x.Doses.HasValue, () =>
         {
             RuleFor(x => x.Doses)
-                .GreaterThanOrEqualTo((ushort)1);
+                .GreaterThanOrEqualTo((ushort)1).WithMessage("Doses field must be greater than or equal to 1.");
         });
     }
 }

@@ -8,14 +8,16 @@ public class CreateVaccineDTOValidator: AbstractValidator<CreateVaccineDTO>
     public CreateVaccineDTOValidator()
     {
         RuleFor(x => x.Name)
-            .MaximumLength(50)
-            .MinimumLength(3);
+            .NotEmpty().WithMessage("Name field is required.")
+            .MaximumLength(50).WithMessage("Name field must have a maximum of 50 characters.")
+            .MinimumLength(3).WithMessage("Name field must have a minimum of 3 characters.");
         
         RuleFor(x => x.Code)
-            .MaximumLength(10)
-            .MinimumLength(3);
+            .NotEmpty().WithMessage("Code field is required.")
+            .MaximumLength(10).WithMessage("Code field must have a maximum of 10 characters.")
+            .MinimumLength(3).WithMessage("Code field must have a minimum of 3 characters.");
 
         RuleFor(x => x.Doses)
-            .GreaterThanOrEqualTo((ushort)1);
+            .GreaterThanOrEqualTo((ushort)1).WithMessage("Doses field must be greater than or equal to 1.");
     }
 }

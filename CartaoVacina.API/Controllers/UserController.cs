@@ -1,10 +1,8 @@
 using CartaoVacina.Contracts.Data.DTOS.Users;
 using CartaoVacina.Contracts.Data.DTOS.Vaccinations;
 using CartaoVacina.Core.Exceptions;
-using CartaoVacina.Core.Handlers.Commands;
 using CartaoVacina.Core.Handlers.Commands.Users;
 using CartaoVacina.Core.Handlers.Commands.Vaccinations;
-using CartaoVacina.Core.Handlers.Queries;
 using CartaoVacina.Core.Handlers.Queries.Users;
 using FluentValidation;
 using MediatR;
@@ -75,7 +73,7 @@ public class UserController(IMediator mediator) : ControllerBase
         }
         catch (ValidationException ex)
         {
-            return BadRequest(ex.Errors);
+            return BadRequest(ex.Message);
         }
         catch (Exception ex)
         {
@@ -103,7 +101,7 @@ public class UserController(IMediator mediator) : ControllerBase
         }
         catch (ValidationException ex)
         {
-            return BadRequest(ex.Errors);
+            return BadRequest(ex.Message);
         }
         catch (Exception ex)
         {
@@ -154,7 +152,7 @@ public class UserController(IMediator mediator) : ControllerBase
         }
         catch (ValidationException ex)
         {
-            return BadRequest(ex.Errors);
+            return BadRequest(ex.Message);
         }
         catch (Exception ex)
         {
@@ -182,7 +180,7 @@ public class UserController(IMediator mediator) : ControllerBase
         }
         catch (ValidationException ex)
         {
-            return BadRequest(ex.Errors);
+            return BadRequest(ex.Message);
         }
         catch (Exception ex)
         {
