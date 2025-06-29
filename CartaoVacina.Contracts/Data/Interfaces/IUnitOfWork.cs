@@ -1,6 +1,6 @@
 using CartaoVacina.Contracts.Data.Interfaces.Repositories;
 
-namespace CartaoVacina.Contracts.Data;
+namespace CartaoVacina.Contracts.Data.Interfaces;
 
 public interface IUnitOfWork
 {

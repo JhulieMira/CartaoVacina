@@ -1,4 +1,4 @@
-using CartaoVacina.Contracts.Data;
+using CartaoVacina.Contracts.Data.Interfaces;
 using CartaoVacina.Infrastructure.Data;
 using CartaoVacina.Migrations;
 using Microsoft.Extensions.Configuration;

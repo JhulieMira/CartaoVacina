@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using CartaoVacina.Contracts.Data;
 using CartaoVacina.Contracts.Data.DTOS.Vaccines;
 using CartaoVacina.Contracts.Data.Entities;
+using CartaoVacina.Contracts.Data.Interfaces;
 using CartaoVacina.Core.Handlers.Commands.Vaccines;
 using CartaoVacina.Core.Handlers.Queries.Vaccines;
 using FluentValidation;
