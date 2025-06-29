@@ -17,12 +17,12 @@ public class Repository<T>(DatabaseContext context) : IRepository<T> where T : B
 
     public IEnumerable<T> Get(Func<T, bool> predicate)
     {
-        return _dbSet.Where(predicate);
+        return _dbSet.AsQueryable().Where(predicate);
     }
 
-    public IEnumerable<T> Get()
+    public IQueryable<T> Get()
     {
-        return _dbSet.AsEnumerable();
+        return _dbSet.AsQueryable();
     }
 
     public async Task Add(T entity, CancellationToken cancellationToken = default)

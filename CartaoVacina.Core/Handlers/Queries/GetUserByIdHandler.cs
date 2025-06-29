@@ -3,6 +3,7 @@ using CartaoVacina.Contracts.Data;
 using CartaoVacina.Contracts.DTOS.Users;
 using CartaoVacina.Core.Exceptions;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace CartaoVacina.Core.Handlers.Queries;
 
@@ -15,12 +16,13 @@ public class GetUserByIdHandler(IUnitOfWork unitOfWork, IMapper mapper) : IReque
 {
     public async Task<UserDTO> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
     {
-        var user = await unitOfWork.Users.GetById(request.UserId, cancellationToken);
+        var user = await unitOfWork.Users.Get()
+            .Include(x => x.Vaccinations)
+            .ThenInclude(x => x.Vaccine)
+            .FirstOrDefaultAsync(x => x.Id == request.UserId);
 
         if (user is null)
             throw new NotFoundException($"User with id {request.UserId} not found.");
-        
-        user.Vaccinations = unitOfWork.Vaccinations.Get(x => x.UserId == request.UserId).ToList();
         
         return mapper.Map<UserDTO>(user);
     }
