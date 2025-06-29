@@ -5,7 +5,7 @@ using CartaoVacina.Contracts.DTOS.Vaccines;
 using FluentValidation;
 using MediatR;
 
-namespace CartaoVacina.Core.Handlers.Commands;
+namespace CartaoVacina.Core.Handlers.Commands.Vaccines;
 
 
 public class CreateVaccineCommand(CreateVaccineDTO payload) : IRequest<VaccineDTO>

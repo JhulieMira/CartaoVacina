@@ -2,7 +2,7 @@ using CartaoVacina.Contracts.Data;
 using CartaoVacina.Core.Exceptions;
 using MediatR;
 
-namespace CartaoVacina.Core.Handlers.Commands;
+namespace CartaoVacina.Core.Handlers.Commands.Vaccinations;
 
 public class DeleteVaccinationCommand(int userId, int vaccinationId): IRequest
 {

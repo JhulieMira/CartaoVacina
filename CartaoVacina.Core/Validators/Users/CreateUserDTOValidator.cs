@@ -2,7 +2,7 @@ using CartaoVacina.Contracts.Data.Entities;
 using CartaoVacina.Contracts.DTOS.Users;
 using FluentValidation;
 
-namespace CartaoVacina.Core.Validators;
+namespace CartaoVacina.Core.Validators.Users;
 
 public class CreateUserDTOValidator : AbstractValidator<CreateUserDTO>
 {

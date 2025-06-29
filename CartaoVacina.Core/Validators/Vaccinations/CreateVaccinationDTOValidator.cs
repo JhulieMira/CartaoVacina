@@ -1,7 +1,7 @@
 using CartaoVacina.Contracts.DTOS.Vaccinations;
 using FluentValidation;
 
-namespace CartaoVacina.Core.Validators;
+namespace CartaoVacina.Core.Validators.Vaccinations;
 
 public class CreateVaccinationDTOValidator: AbstractValidator<CreateVaccinationDTO>
 {

@@ -5,7 +5,7 @@ using CartaoVacina.Contracts.DTOS.Users;
 using FluentValidation;
 using MediatR;
 
-namespace CartaoVacina.Core.Handlers.Commands;
+namespace CartaoVacina.Core.Handlers.Commands.Users;
 
 
 public class CreateUserCommand(CreateUserDTO payload) : IRequest<UserDTO>

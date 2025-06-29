@@ -5,7 +5,7 @@ using CartaoVacina.Core.Exceptions;
 using FluentValidation;
 using MediatR;
 
-namespace CartaoVacina.Core.Handlers.Commands;
+namespace CartaoVacina.Core.Handlers.Commands.Users;
 
 public class UpdateUserCommand(int userId, UpdateUserDTO updateUserDTO): IRequest<UserDTO>
 {

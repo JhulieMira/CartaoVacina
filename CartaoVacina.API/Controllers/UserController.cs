@@ -2,6 +2,8 @@ using CartaoVacina.Contracts.DTOS.Users;
 using CartaoVacina.Contracts.DTOS.Vaccinations;
 using CartaoVacina.Core.Exceptions;
 using CartaoVacina.Core.Handlers.Commands;
+using CartaoVacina.Core.Handlers.Commands.Users;
+using CartaoVacina.Core.Handlers.Commands.Vaccinations;
 using CartaoVacina.Core.Handlers.Queries;
 using FluentValidation;
 using MediatR;
