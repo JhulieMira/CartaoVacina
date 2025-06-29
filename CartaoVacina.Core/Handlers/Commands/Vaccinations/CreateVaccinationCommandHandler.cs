@@ -33,7 +33,7 @@ public class CreateVaccinationCommandHandler(
         if (UserHasTakenVaccine(unitOfWork, request))
             throw new ValidationException($"User already has taken the dose {request.Payload.Dose} of the vaccine {vaccine.Name}.");
 
-        if (DoseVacinationIsValid(vaccine, request))
+        if (!DoseVacinationIsValid(vaccine, request))
             throw new ValidationException($"User has already taken all doses of the vaccine {vaccine.Name}. Total doses: {vaccine.Doses}");
 
 
