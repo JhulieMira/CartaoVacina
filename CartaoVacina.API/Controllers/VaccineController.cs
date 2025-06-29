@@ -5,12 +5,14 @@ using CartaoVacina.Core.Handlers.Commands.Vaccines;
 using CartaoVacina.Core.Handlers.Queries;
 using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CartaoVacina.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class VaccineController(IMediator mediator): ControllerBase
 {
     
