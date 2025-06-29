@@ -14,7 +14,11 @@ public class CreateVaccinationCommand(int userId, CreateVaccinationDTO payload) 
     public CreateVaccinationDTO Payload { get; } = payload;
 }
 
-public class CreateVaccinationCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IValidator<CreateVaccinationDTO> validator): IRequestHandler<CreateVaccinationCommand, VaccinationDTO>
+public class CreateVaccinationCommandHandler(
+    IUnitOfWork unitOfWork, 
+    IMapper mapper, 
+    IValidator<CreateVaccinationDTO> validator
+): IRequestHandler<CreateVaccinationCommand, VaccinationDTO>
 {
     public async Task<VaccinationDTO> Handle(CreateVaccinationCommand request, CancellationToken cancellationToken)
     {
@@ -28,7 +32,11 @@ public class CreateVaccinationCommandHandler(IUnitOfWork unitOfWork, IMapper map
         
         if (UserHasTakenVaccine(unitOfWork, request))
             throw new ValidationException($"User already has taken the dose {request.Payload.Dose} of the vaccine {vaccine.Name}.");
-        
+
+        if (DoseVacinationIsValid(vaccine, request))
+            throw new ValidationException($"User has already taken all doses of the vaccine {vaccine.Name}. Total doses: {vaccine.Doses}");
+
+
         var vaccination = new Vaccination {
             UserId = request.UserId,
             VaccineId = request.Payload.VaccineId,
@@ -85,6 +93,10 @@ public class CreateVaccinationCommandHandler(IUnitOfWork unitOfWork, IMapper map
             return false;
 
         return true;
+    }
+    private static bool DoseVacinationIsValid(Vaccine vaccine, CreateVaccinationCommand request)
+    {
+         return request.Payload.Dose > vaccine.Doses;
     }
     private static bool UserHasTakenVaccine(IUnitOfWork unitOfWork, CreateVaccinationCommand request)
     {
