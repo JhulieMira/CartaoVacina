@@ -17,10 +17,7 @@ public class CreateUserCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IV
 {
     public async Task<UserDTO> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
-        var validationResult = await validator.ValidateAsync(request.Payload, cancellationToken);
-        
-        if (!validationResult.IsValid)
-            throw new ValidationException(validationResult.Errors);
+        await ValidateRequest(request, cancellationToken);
         
         var user = mapper.Map<User>(request.Payload);
         
@@ -28,5 +25,13 @@ public class CreateUserCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IV
         await unitOfWork.CommitAsync(cancellationToken);
         
         return mapper.Map<UserDTO>(user);
+    }
+    
+    private async Task ValidateRequest(CreateUserCommand request, CancellationToken cancellationToken)
+    {
+        var validationResult = await validator.ValidateAsync(request.Payload, cancellationToken);
+        
+        if (!validationResult.IsValid)
+            throw new ValidationException(validationResult.Errors);
     }
 }
