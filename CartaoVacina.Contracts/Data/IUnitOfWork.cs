@@ -1,4 +1,4 @@
-using CartaoVacina.Contracts.Data.Repositories;
+using CartaoVacina.Contracts.Data.Interfaces.Repositories;
 
 namespace CartaoVacina.Contracts.Data;
 

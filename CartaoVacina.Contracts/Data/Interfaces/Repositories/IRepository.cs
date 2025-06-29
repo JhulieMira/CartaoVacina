@@ -1,6 +1,6 @@
 using CartaoVacina.Contracts.Data.Entities;
 
-namespace CartaoVacina.Contracts.Data.Repositories;
+namespace CartaoVacina.Contracts.Data.Interfaces.Repositories;
 
 public interface IRepository<T> where T : BaseEntity
 {

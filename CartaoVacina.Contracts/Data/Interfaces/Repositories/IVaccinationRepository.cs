@@ -1,5 +1,5 @@
 using CartaoVacina.Contracts.Data.Entities;
 
-namespace CartaoVacina.Contracts.Data.Repositories;
+namespace CartaoVacina.Contracts.Data.Interfaces.Repositories;
 
 public interface IVaccinationRepository: IRepository<Vaccination> { }
